@@ -29,25 +29,29 @@
 
 
 ### Tagline : 
-<p>To give the news about weather changes and help farmer prepare for any kind of disaster, we provide them with headlines, so their crops can be protected by the harsh weather.</p>
+<p>AgroVision: Empowering farmers with weather, crop, and news insights to increase profits and transform farming with technology.</p>
 
 ### Problem it solves :
-<p> Farmers rely on suitable weather to make their crops thrive and grow healthy. But when the same weather suddenly changes, it brings disaster ruining the crops of the farmers before they have time to prepare themselves and save the crops. </p>
-<p>Therefore, our solution help farmers by notifying them about weather changes and any other disaster, so they can prepare for the weather and have a chance to save the crops from falling completely. </p>
-<p>Our solution takes use the weather forecast data to give not only warning, but also suggestions about a good time to sow the seeds for the next season, cutting the crops etc. 
+<p>AgroVision is a solution designed to help farmers protect their crops from sudden weather changes and potential disasters. By providing real-time weather notifications, our platform empowers farmers to take proactive measures to safeguard their crops and increase their chances of success.</p>
+<p>In addition to weather warnings, AgroVision utilizes weather forecast data to suggest optimal times for planting and harvesting, helping farmers plan and optimize their crop growth. </p>
+<p>We understand the importance of user-friendly technology for farmers, so we designed AgroVision's interface to be simple and easy to use, with a one-step process for accessing all of our features. 
 </p>
+<p>To ensure scalability and self-sufficiency, we've incorporated a robust business logic into our platform. Additional high-end services can be made available on a subscription basis, while keeping our basic features free for all users. </p>
+<p>Overall, AgroVision aims to transform the future of farming with innovative technology that empowers farmers to make informed decisions and protect their livelihoods.</p>
+
 
 ### Challenges we ran into:
-<p>One of the biggest challenges we faced was how little information the farmers have about technologies. It made it difficult for us to deliver the information to them. Along with that, farmers speak and understand different languages, therefore, delivering the data in their preferred language was another hurdle.</p>
-	<p>To overcome the challenges, we decided to deliver the information in the most basic format, that is using the SMS system, as most farmers at least have some sort of mobile phone. So, deliver all the information, an SMS will be sent to the number registered by the farmer in the preferred language used by them.</p>
-	<p>The information along with some other perks can be seen by the farmer on the website as well. But for those who are not familiar with technologies and how to navigate the internet, the SMS service will help them provide all the information.</p>
-	<p>The next challenge was to make the it assessable to all the farmers at a very low cost. So, to overcome this challenge we made sure the farmers find our services worthy of their money. Therefore, a trial is provided to the farmer for the first month of subscription with all the perks and then a minimum amount of pricing will be charged only for the services needed. This ensure that they only pay for things they want and are not overwhelmed by the price.</p>
-	<p>To keep the prices minimum, we researched various service providers who provided services we wanted at a low cost.</p>
+<p>One major challenge faced in delivering information to farmers was their lack of familiarity with technology, compounded by differences in language. To overcome these hurdles, a basic format was adopted - SMS delivery - as most farmers own mobile phones. By registering their preferred language and phone number, farmers receive SMS updates, while also having access to the information on the website. This approach ensures that even those who are not tech-savvy can easily access and understand the information.
+</p>
+	<p>Another challenge was to make the service affordable for all farmers. To address this, a trial period was offered, providing all the services for the first month with minimal charges afterwards, based only on the services needed. This approach ensures that farmers only pay for the features they require, avoiding unnecessary costs. Additionally, research was conducted to identify service providers offering cost-effective solutions, keeping the prices low.</p>
+	<p>By addressing these challenges, the service was made accessible to a larger audience, enabling farmers to leverage technology to make informed decisions for their farms, despite language and technology barriers.</p>
+	
 
-### Technologies we used:
+### Technologies and Tools we used:
 
 ReactJS,
 NodeJS,
 Express,
-MongoDB
+MongoDB,
+Figma
 
