@@ -31,6 +31,12 @@
 ### Tagline : 
 <p>AgroVision: Empowering farmers with weather, crop, and news insights to increase profits and transform farming with technology.</p>
 
+### Problem statement :
+<p>Assisting farmers with the help of data from the meteorological department. </p>
+
+### BRIEF DESCRIPTION ON HOW YOUR PROJECT FITS INTO SOFTWARE TRACK
+<p>Under the software track, we tackled the problem statement of assisting farmers by utilizing data from the meteorological department. To accomplish this, we leveraged various meteorological data sources through APIs and transformed them into a web application. Additionally, we carefully designed the interface to ensure the best possible user experience for accessing this valuable information.</p>
+
 ### Problem it solves :
 <p>AgroVision is a solution designed to help farmers protect their crops from sudden weather changes and potential disasters. By providing real-time weather notifications, our platform empowers farmers to take proactive measures to safeguard their crops and increase their chances of success.</p>
 <p>In addition to weather warnings, AgroVision utilizes weather forecast data to suggest optimal times for planting and harvesting, helping farmers plan and optimize their crop growth. </p>
@@ -45,6 +51,8 @@
 </p>
 	<p>Another challenge was to make the service affordable for all farmers. To address this, a trial period was offered, providing all the services for the first month with minimal charges afterwards, based only on the services needed. This approach ensures that farmers only pay for the features they require, avoiding unnecessary costs. Additionally, research was conducted to identify service providers offering cost-effective solutions, keeping the prices low.</p>
 	<p>By addressing these challenges, the service was made accessible to a larger audience, enabling farmers to leverage technology to make informed decisions for their farms, despite language and technology barriers.</p>
+
+
 	
 
 ### Technologies and Tools we used:
