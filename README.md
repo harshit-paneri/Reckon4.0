@@ -1,4 +1,4 @@
-# Reckon
+# Reckon 4.0
 
 ## Team : Black White DOG
 
@@ -34,7 +34,7 @@
 ### Problem statement :
 <p>Assisting farmers with the help of data from the meteorological department. </p>
 
-### BRIEF DESCRIPTION ON HOW YOUR PROJECT FITS INTO SOFTWARE TRACK
+### HOW OUR PROJECT SOLVES ABOVE PROBLEM
 <p>Under the software track, we tackled the problem statement of assisting farmers by utilizing data from the meteorological department. To accomplish this, we leveraged various meteorological data sources through APIs and transformed them into a web application. Additionally, we carefully designed the interface to ensure the best possible user experience for accessing this valuable information.</p>
 
 ### Problem it solves :
