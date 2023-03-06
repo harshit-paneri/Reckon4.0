@@ -46,8 +46,8 @@
 
 ### Technologies we used:
 
-ReactJS
-NodeJS
-Express
+ReactJS,
+NodeJS,
+Express,
 MongoDB
 
