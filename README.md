@@ -3,8 +3,9 @@
 ## Team : Black White DOG
 
 ---
-• Asim Ali DM
-• Harshit Paneri
-• Naman Sharma
-• Priyanshu Arora
+Team Member : </br>
+• Asim Ali DM </br>
+• Harshit Paneri </br>
+• Naman Sharma </br>
+• Priyanshu Arora </br>
 ---
