@@ -1,6 +1,6 @@
 # Reckon 4.0
 
-## Team : Black White DOG
+# Team : Black White DOG
 
 <h1>Developers Details 💥✨👩‍💻🐱‍👤</h1>
 <table>
