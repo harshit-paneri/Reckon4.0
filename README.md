@@ -51,6 +51,10 @@
 </p>
 	<p>Another challenge was to make the service affordable for all farmers. To address this, a trial period was offered, providing all the services for the first month with minimal charges afterwards, based only on the services needed. This approach ensures that farmers only pay for the features they require, avoiding unnecessary costs. Additionally, research was conducted to identify service providers offering cost-effective solutions, keeping the prices low.</p>
 	<p>By addressing these challenges, the service was made accessible to a larger audience, enabling farmers to leverage technology to make informed decisions for their farms, despite language and technology barriers.</p>
+	
+	
+###Postman API Collection with Documentation
+Click [here](https://api.postman.com/collections/23425485-1e524f12-4cb7-41fd-b8bf-46cf13a28618?access_key=PMAT-01GVW3R03FMV1SH21ZS5BF7NCK)
 
 
 	
