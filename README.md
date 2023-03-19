@@ -56,7 +56,7 @@
 	
 ### Postman API Collection with Documentation
 
-Link : [Collection link](https://martian-crater-891301.postman.co/workspace/Farmer~59cf23e0-793c-4e8b-a572-be0e15d31e5b/collection/23425485-1e524f12-4cb7-41fd-b8bf-46cf13a28618?action=share&creator=23425485)
+Collection link : [AgroVision](https://martian-crater-891301.postman.co/workspace/Farmer~59cf23e0-793c-4e8b-a572-be0e15d31e5b/collection/23425485-1e524f12-4cb7-41fd-b8bf-46cf13a28618?action=share&creator=23425485)
 
 	
 
