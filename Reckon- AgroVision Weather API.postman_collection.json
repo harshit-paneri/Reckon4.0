@@ -1,0 +1,928 @@
+{
+	"info": {
+		"_postman_id": "1e524f12-4cb7-41fd-b8bf-46cf13a28618",
+		"name": "Reckon- AgroVision Weather API",
+		"description": "# AgroVision\n### Complete API guide on the project\n\n\nAgroVision makes use of various public free and paid APIs(free tier demo).\n\n- Weather API by weatherapi.com\n- SMS API by Twilio.com\n- Pincode to Coordinates by india-pincode-with-latitude-and-longitude on rapidapi.com/vigowebs/api/india-pincode-with-latitude-and-longitude\n\n\n###### The Flow of Data through APIs for the complete service completion is:\n\nStep 1:- User Enters Details on Login Page(mobile_no and pincode).\nStep 2:- Fetching User's Address and Coordinates with Pincode using our \"Pincode to Coordinates\" API.\nStep 3:- Using User coordinates, Call \"Weather API\" for Weather Data and Alerts for the Region.\nStep 4:- Finally Process the Data Received into understandable Format.\nStep 5:- Finally Send the Data over SMS service to the user using the \"SMS API\".\n\n#### Details of each API is given Below:\n\n\n##### --> Weather API\nDefault Method : GET\n\nGet Weather Data:\n```sh\nhttp://api.weatherapi.com/v1/current.json?key=<Your_API_KEY>&q=Jodhpur, Rajasthan&aqi=no\n```\n\nGet Weather Forecast for N days:\n```sh\nhttp://api.weatherapi.com/v1/forecast.json?key=<Your_API_KEY>&q=Jodhpur, Rajasthan&days=1&aqi=no&alerts=no\n```\n\nGet Weather Forecast for N days and Weather ALerts:\n```sh\nhttp://api.weatherapi.com/v1/forecast.json?key=<Your_API_KEY>&q=Jodhpur, Rajasthan&days=1&aqi=no&alerts=yes\n```\n\nThe complete documentation can be found [here](https://www.weatherapi.com/docs/)\n\n \n##### --> Fetching Coordinates from Pincode\nGet Coordinates from Pincode:\n```sh\nhttps://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/<pincode>\n```\nThe complete documentation can be found [here](https://rapidapi.com/vigowebs/api/india-pincode-with-latitude-and-longitude)\n\n\n##### --> SMS API \nFor Sending Data over SMS service, we integrated Twilio API in our codebase through its npm Module-\n```sh\n$ npm install twilio\n```\n\nThe complete documentation of its SMS service can be found [here](https://www.twilio.com/docs/sms)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23425553"
+	},
+	"item": [
+		{
+			"name": "Pincode to Coordinates",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "india-pincode-with-latitude-and-longitude.p.rapidapi.com"
+					},
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "31dd764f7cmsh36b0e2c416365e1p1a5995jsn5e6263c75b55"
+					}
+				],
+				"url": {
+					"raw": "https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/313001",
+					"protocol": "https",
+					"host": [
+						"india-pincode-with-latitude-and-longitude",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pincode",
+						"313001"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ex - Pincode to Coordinates",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "india-pincode-with-latitude-and-longitude.p.rapidapi.com"
+							},
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "31dd764f7cmsh36b0e2c416365e1p1a5995jsn5e6263c75b55"
+							}
+						],
+						"url": {
+							"raw": "https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/313001",
+							"protocol": "https",
+							"host": [
+								"india-pincode-with-latitude-and-longitude",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pincode",
+								"313001"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 Mar 2023 04:47:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "469"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "x-turbo-charged-by",
+							"value": "LiteSpeed"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-RateLimit-Requests-Limit",
+							"value": "1000"
+						},
+						{
+							"key": "X-RateLimit-Requests-Remaining",
+							"value": "984"
+						},
+						{
+							"key": "X-RateLimit-Requests-Reset",
+							"value": "2602907"
+						},
+						{
+							"key": "Server",
+							"value": "RapidAPI-1.2.8"
+						},
+						{
+							"key": "X-RapidAPI-Version",
+							"value": "1.2.8"
+						},
+						{
+							"key": "X-RapidAPI-Region",
+							"value": "AWS - ap-southeast-1"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"pincode\": 313001,\n        \"area\": \"Balicha\",\n        \"lat\": 24.50802,\n        \"lng\": 73.68069,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Bhuwana\",\n        \"lat\": 24.61307,\n        \"lng\": 73.70168,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Dakan Kotra\",\n        \"lat\": 24.48721,\n        \"lng\": 73.72832,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Dhinkli\",\n        \"lat\": 24.64159,\n        \"lng\": 73.75641,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Dhundi\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Fatehpur\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Karda\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Kathar\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Kewda Khurd\",\n        \"lat\": 24.644660000000002,\n        \"lng\": 73.80821,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Palodara\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Paner\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Piladhar\",\n        \"lat\": 24.59579,\n        \"lng\": 73.79482,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Royda\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Saveena\",\n        \"lat\": 24.59579,\n        \"lng\": 73.79482,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Titardi\",\n        \"lat\": 24.53461,\n        \"lng\": 73.72102,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur City\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Fatehpura\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Macchala Magra\",\n        \"lat\": 24.60029,\n        \"lng\": 73.74983,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Naya Sarafa\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Palace Road\",\n        \"lat\": 24.57919,\n        \"lng\": 73.68385,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Pratapnagar\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Railway Station\",\n        \"lat\": 24.56358,\n        \"lng\": 73.69355,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Rani Road\",\n        \"lat\": 24.58577,\n        \"lng\": 73.66466,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Shastri Circle\",\n        \"lat\": 24.6035,\n        \"lng\": 73.80217,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Station Road\",\n        \"lat\": 24.57333,\n        \"lng\": 73.69991,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur Surajpole\",\n        \"lat\": 24.598284,\n        \"lng\": 73.724249,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 313001,\n        \"area\": \"Udaipur University Campus\",\n        \"lat\": 24.58773,\n        \"lng\": 73.72001,\n        \"district\": \"Udaipur\",\n        \"state\": \"Rajasthan\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Weather Data",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Ex- Get Weather Data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.weatherapi.com/v1/current.json?key={{WeatherAPI-Key2}}&q=Udaipur&aqi=no",
+							"protocol": "http",
+							"host": [
+								"api",
+								"weatherapi",
+								"com"
+							],
+							"path": [
+								"v1",
+								"current.json"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{WeatherAPI-Key2}}"
+								},
+								{
+									"key": "q",
+									"value": "Udaipur"
+								},
+								{
+									"key": "aqi",
+									"value": "no"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 Mar 2023 04:53:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Server",
+							"value": "BunnyCDN-SG1-989"
+						},
+						{
+							"key": "CDN-PullZone",
+							"value": "93447"
+						},
+						{
+							"key": "CDN-Uid",
+							"value": "8fa3a04a-75d9-4707-8056-b7b33c8ac7fe"
+						},
+						{
+							"key": "CDN-RequestCountryCode",
+							"value": "IN"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=180"
+						},
+						{
+							"key": "CDN-ProxyVer",
+							"value": "1.03"
+						},
+						{
+							"key": "CDN-RequestPullSuccess",
+							"value": "True"
+						},
+						{
+							"key": "CDN-RequestPullCode",
+							"value": "200"
+						},
+						{
+							"key": "CDN-CachedAt",
+							"value": "03/19/2023 04:52:12"
+						},
+						{
+							"key": "CDN-EdgeStorageId",
+							"value": "782"
+						},
+						{
+							"key": "CDN-Status",
+							"value": "200"
+						},
+						{
+							"key": "CDN-RequestId",
+							"value": "90383df15d1b76793f463eb27f7202ed"
+						},
+						{
+							"key": "CDN-Cache",
+							"value": "HIT"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"location\": {\n        \"name\": \"Udaipur\",\n        \"region\": \"Rajasthan\",\n        \"country\": \"India\",\n        \"lat\": 27.72,\n        \"lon\": 75.48,\n        \"tz_id\": \"Asia/Kolkata\",\n        \"localtime_epoch\": 1679201531,\n        \"localtime\": \"2023-03-19 10:22\"\n    },\n    \"current\": {\n        \"last_updated_epoch\": 1679201100,\n        \"last_updated\": \"2023-03-19 10:15\",\n        \"temp_c\": 24.7,\n        \"temp_f\": 76.5,\n        \"is_day\": 1,\n        \"condition\": {\n            \"text\": \"Sunny\",\n            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n            \"code\": 1000\n        },\n        \"wind_mph\": 2.7,\n        \"wind_kph\": 4.3,\n        \"wind_degree\": 312,\n        \"wind_dir\": \"NW\",\n        \"pressure_mb\": 1011,\n        \"pressure_in\": 29.84,\n        \"precip_mm\": 0,\n        \"precip_in\": 0,\n        \"humidity\": 42,\n        \"cloud\": 3,\n        \"feelslike_c\": 25.3,\n        \"feelslike_f\": 77.5,\n        \"vis_km\": 10,\n        \"vis_miles\": 6,\n        \"uv\": 6,\n        \"gust_mph\": 3.1,\n        \"gust_kph\": 5\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Weather Forecast with alerts",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Ex - Get Weather Forecast with alerts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.weatherapi.com/v1/forecast.json?key={{WeatherAPI-Key2}}&q=Udaipur&days=1&aqi=no&alerts=yes",
+							"protocol": "http",
+							"host": [
+								"api",
+								"weatherapi",
+								"com"
+							],
+							"path": [
+								"v1",
+								"forecast.json"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{WeatherAPI-Key2}}"
+								},
+								{
+									"key": "q",
+									"value": "Udaipur"
+								},
+								{
+									"key": "days",
+									"value": "1"
+								},
+								{
+									"key": "aqi",
+									"value": "no"
+								},
+								{
+									"key": "alerts",
+									"value": "yes"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 Mar 2023 04:55:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Server",
+							"value": "BunnyCDN-SG1-869"
+						},
+						{
+							"key": "CDN-PullZone",
+							"value": "93447"
+						},
+						{
+							"key": "CDN-Uid",
+							"value": "8fa3a04a-75d9-4707-8056-b7b33c8ac7fe"
+						},
+						{
+							"key": "CDN-RequestCountryCode",
+							"value": "IN"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=180"
+						},
+						{
+							"key": "CDN-ProxyVer",
+							"value": "1.03"
+						},
+						{
+							"key": "CDN-RequestPullSuccess",
+							"value": "True"
+						},
+						{
+							"key": "CDN-RequestPullCode",
+							"value": "200"
+						},
+						{
+							"key": "CDN-CachedAt",
+							"value": "03/19/2023 04:55:38"
+						},
+						{
+							"key": "CDN-EdgeStorageId",
+							"value": "1022"
+						},
+						{
+							"key": "CDN-Status",
+							"value": "200"
+						},
+						{
+							"key": "CDN-RequestId",
+							"value": "e4b40ec3cfce8ed0650877ba0eda9326"
+						},
+						{
+							"key": "CDN-Cache",
+							"value": "EXPIRED"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"location\": {\n        \"name\": \"Udaipur\",\n        \"region\": \"Rajasthan\",\n        \"country\": \"India\",\n        \"lat\": 27.72,\n        \"lon\": 75.48,\n        \"tz_id\": \"Asia/Kolkata\",\n        \"localtime_epoch\": 1679201738,\n        \"localtime\": \"2023-03-19 10:25\"\n    },\n    \"current\": {\n        \"last_updated_epoch\": 1679201100,\n        \"last_updated\": \"2023-03-19 10:15\",\n        \"temp_c\": 23,\n        \"temp_f\": 73.4,\n        \"is_day\": 1,\n        \"condition\": {\n            \"text\": \"Mist\",\n            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/143.png\",\n            \"code\": 1030\n        },\n        \"wind_mph\": 6.9,\n        \"wind_kph\": 11.2,\n        \"wind_degree\": 70,\n        \"wind_dir\": \"ENE\",\n        \"pressure_mb\": 1011,\n        \"pressure_in\": 29.84,\n        \"precip_mm\": 0,\n        \"precip_in\": 0,\n        \"humidity\": 83,\n        \"cloud\": 0,\n        \"feelslike_c\": 24.4,\n        \"feelslike_f\": 76,\n        \"vis_km\": 1.4,\n        \"vis_miles\": 0,\n        \"uv\": 6,\n        \"gust_mph\": 3.1,\n        \"gust_kph\": 5\n    },\n    \"forecast\": {\n        \"forecastday\": [\n            {\n                \"date\": \"2023-03-19\",\n                \"date_epoch\": 1679184000,\n                \"day\": {\n                    \"maxtemp_c\": 31.4,\n                    \"maxtemp_f\": 88.5,\n                    \"mintemp_c\": 17.1,\n                    \"mintemp_f\": 62.8,\n                    \"avgtemp_c\": 23.4,\n                    \"avgtemp_f\": 74.1,\n                    \"maxwind_mph\": 11.4,\n                    \"maxwind_kph\": 18.4,\n                    \"totalprecip_mm\": 0,\n                    \"totalprecip_in\": 0,\n                    \"totalsnow_cm\": 0,\n                    \"avgvis_km\": 10,\n                    \"avgvis_miles\": 6,\n                    \"avghumidity\": 46,\n                    \"daily_will_it_rain\": 0,\n                    \"daily_chance_of_rain\": 0,\n                    \"daily_will_it_snow\": 0,\n                    \"daily_chance_of_snow\": 0,\n                    \"condition\": {\n                        \"text\": \"Sunny\",\n                        \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                        \"code\": 1000\n                    },\n                    \"uv\": 6\n                },\n                \"astro\": {\n                    \"sunrise\": \"06:35 AM\",\n                    \"sunset\": \"06:40 PM\",\n                    \"moonrise\": \"05:05 AM\",\n                    \"moonset\": \"04:09 PM\",\n                    \"moon_phase\": \"Waning Crescent\",\n                    \"moon_illumination\": \"10\",\n                    \"is_moon_up\": 1,\n                    \"is_sun_up\": 0\n                },\n                \"hour\": [\n                    {\n                        \"time_epoch\": 1679164200,\n                        \"time\": \"2023-03-19 00:00\",\n                        \"temp_c\": 18.9,\n                        \"temp_f\": 66,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 6,\n                        \"wind_kph\": 9.7,\n                        \"wind_degree\": 89,\n                        \"wind_dir\": \"E\",\n                        \"pressure_mb\": 1010,\n                        \"pressure_in\": 29.83,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 65,\n                        \"cloud\": 8,\n                        \"feelslike_c\": 18.9,\n                        \"feelslike_f\": 66,\n                        \"windchill_c\": 18.9,\n                        \"windchill_f\": 66,\n                        \"heatindex_c\": 18.9,\n                        \"heatindex_f\": 66,\n                        \"dewpoint_c\": 12.2,\n                        \"dewpoint_f\": 54,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 11.2,\n                        \"gust_kph\": 18,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679167800,\n                        \"time\": \"2023-03-19 01:00\",\n                        \"temp_c\": 18.7,\n                        \"temp_f\": 65.7,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 5.4,\n                        \"wind_kph\": 8.6,\n                        \"wind_degree\": 94,\n                        \"wind_dir\": \"E\",\n                        \"pressure_mb\": 1010,\n                        \"pressure_in\": 29.82,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 66,\n                        \"cloud\": 9,\n                        \"feelslike_c\": 18.7,\n                        \"feelslike_f\": 65.7,\n                        \"windchill_c\": 18.7,\n                        \"windchill_f\": 65.7,\n                        \"heatindex_c\": 18.7,\n                        \"heatindex_f\": 65.7,\n                        \"dewpoint_c\": 12.3,\n                        \"dewpoint_f\": 54.1,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 9.8,\n                        \"gust_kph\": 15.8,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679171400,\n                        \"time\": \"2023-03-19 02:00\",\n                        \"temp_c\": 18.2,\n                        \"temp_f\": 64.8,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 4.3,\n                        \"wind_kph\": 6.8,\n                        \"wind_degree\": 104,\n                        \"wind_dir\": \"ESE\",\n                        \"pressure_mb\": 1010,\n                        \"pressure_in\": 29.81,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 69,\n                        \"cloud\": 9,\n                        \"feelslike_c\": 18.2,\n                        \"feelslike_f\": 64.8,\n                        \"windchill_c\": 18.2,\n                        \"windchill_f\": 64.8,\n                        \"heatindex_c\": 18.2,\n                        \"heatindex_f\": 64.8,\n                        \"dewpoint_c\": 12.4,\n                        \"dewpoint_f\": 54.3,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 7.8,\n                        \"gust_kph\": 12.6,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679175000,\n                        \"time\": \"2023-03-19 03:00\",\n                        \"temp_c\": 17.7,\n                        \"temp_f\": 63.9,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 3.1,\n                        \"wind_kph\": 5,\n                        \"wind_degree\": 96,\n                        \"wind_dir\": \"E\",\n                        \"pressure_mb\": 1009,\n                        \"pressure_in\": 29.8,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 72,\n                        \"cloud\": 8,\n                        \"feelslike_c\": 17.7,\n                        \"feelslike_f\": 63.9,\n                        \"windchill_c\": 17.7,\n                        \"windchill_f\": 63.9,\n                        \"heatindex_c\": 17.7,\n                        \"heatindex_f\": 63.9,\n                        \"dewpoint_c\": 12.5,\n                        \"dewpoint_f\": 54.5,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 6,\n                        \"gust_kph\": 9.7,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679178600,\n                        \"time\": \"2023-03-19 04:00\",\n                        \"temp_c\": 17.5,\n                        \"temp_f\": 63.5,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 2.9,\n                        \"wind_kph\": 4.7,\n                        \"wind_degree\": 90,\n                        \"wind_dir\": \"E\",\n                        \"pressure_mb\": 1009,\n                        \"pressure_in\": 29.79,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 72,\n                        \"cloud\": 5,\n                        \"feelslike_c\": 17.5,\n                        \"feelslike_f\": 63.5,\n                        \"windchill_c\": 17.5,\n                        \"windchill_f\": 63.5,\n                        \"heatindex_c\": 17.5,\n                        \"heatindex_f\": 63.5,\n                        \"dewpoint_c\": 12.4,\n                        \"dewpoint_f\": 54.3,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 5.8,\n                        \"gust_kph\": 9.4,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679182200,\n                        \"time\": \"2023-03-19 05:00\",\n                        \"temp_c\": 17.3,\n                        \"temp_f\": 63.1,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 2,\n                        \"wind_kph\": 3.2,\n                        \"wind_degree\": 130,\n                        \"wind_dir\": \"SE\",\n                        \"pressure_mb\": 1009,\n                        \"pressure_in\": 29.8,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 73,\n                        \"cloud\": 5,\n                        \"feelslike_c\": 17.3,\n                        \"feelslike_f\": 63.1,\n                        \"windchill_c\": 17.3,\n                        \"windchill_f\": 63.1,\n                        \"heatindex_c\": 17.3,\n                        \"heatindex_f\": 63.1,\n                        \"dewpoint_c\": 12.3,\n                        \"dewpoint_f\": 54.1,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 4.3,\n                        \"gust_kph\": 6.8,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679185800,\n                        \"time\": \"2023-03-19 06:00\",\n                        \"temp_c\": 17.1,\n                        \"temp_f\": 62.8,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 1.8,\n                        \"wind_kph\": 2.9,\n                        \"wind_degree\": 120,\n                        \"wind_dir\": \"ESE\",\n                        \"pressure_mb\": 1010,\n                        \"pressure_in\": 29.82,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 74,\n                        \"cloud\": 5,\n                        \"feelslike_c\": 17.1,\n                        \"feelslike_f\": 62.8,\n                        \"windchill_c\": 17.1,\n                        \"windchill_f\": 62.8,\n                        \"heatindex_c\": 17.1,\n                        \"heatindex_f\": 62.8,\n                        \"dewpoint_c\": 12.3,\n                        \"dewpoint_f\": 54.1,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 3.8,\n                        \"gust_kph\": 6.1,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679189400,\n                        \"time\": \"2023-03-19 07:00\",\n                        \"temp_c\": 19,\n                        \"temp_f\": 66.2,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 1.8,\n                        \"wind_kph\": 2.9,\n                        \"wind_degree\": 72,\n                        \"wind_dir\": \"ENE\",\n                        \"pressure_mb\": 1010,\n                        \"pressure_in\": 29.84,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 65,\n                        \"cloud\": 5,\n                        \"feelslike_c\": 19,\n                        \"feelslike_f\": 66.2,\n                        \"windchill_c\": 19,\n                        \"windchill_f\": 66.2,\n                        \"heatindex_c\": 19,\n                        \"heatindex_f\": 66.2,\n                        \"dewpoint_c\": 12.3,\n                        \"dewpoint_f\": 54.1,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 2.9,\n                        \"gust_kph\": 4.7,\n                        \"uv\": 5\n                    },\n                    {\n                        \"time_epoch\": 1679193000,\n                        \"time\": \"2023-03-19 08:00\",\n                        \"temp_c\": 20.8,\n                        \"temp_f\": 69.4,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 1.6,\n                        \"wind_kph\": 2.5,\n                        \"wind_degree\": 62,\n                        \"wind_dir\": \"ENE\",\n                        \"pressure_mb\": 1011,\n                        \"pressure_in\": 29.85,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 57,\n                        \"cloud\": 4,\n                        \"feelslike_c\": 20.8,\n                        \"feelslike_f\": 69.4,\n                        \"windchill_c\": 20.8,\n                        \"windchill_f\": 69.4,\n                        \"heatindex_c\": 20.8,\n                        \"heatindex_f\": 69.4,\n                        \"dewpoint_c\": 12,\n                        \"dewpoint_f\": 53.6,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 2,\n                        \"gust_kph\": 3.2,\n                        \"uv\": 6\n                    },\n                    {\n                        \"time_epoch\": 1679196600,\n                        \"time\": \"2023-03-19 09:00\",\n                        \"temp_c\": 22.9,\n                        \"temp_f\": 73.2,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 1.1,\n                        \"wind_kph\": 1.8,\n                        \"wind_degree\": 347,\n                        \"wind_dir\": \"NNW\",\n                        \"pressure_mb\": 1011,\n                        \"pressure_in\": 29.85,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 49,\n                        \"cloud\": 3,\n                        \"feelslike_c\": 24.7,\n                        \"feelslike_f\": 76.5,\n                        \"windchill_c\": 22.9,\n                        \"windchill_f\": 73.2,\n                        \"heatindex_c\": 24.7,\n                        \"heatindex_f\": 76.5,\n                        \"dewpoint_c\": 11.7,\n                        \"dewpoint_f\": 53.1,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 1.3,\n                        \"gust_kph\": 2.2,\n                        \"uv\": 6\n                    },\n                    {\n                        \"time_epoch\": 1679200200,\n                        \"time\": \"2023-03-19 10:00\",\n                        \"temp_c\": 24.7,\n                        \"temp_f\": 76.5,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 2.7,\n                        \"wind_kph\": 4.3,\n                        \"wind_degree\": 312,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1011,\n                        \"pressure_in\": 29.84,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 42,\n                        \"cloud\": 3,\n                        \"feelslike_c\": 25.3,\n                        \"feelslike_f\": 77.5,\n                        \"windchill_c\": 24.7,\n                        \"windchill_f\": 76.5,\n                        \"heatindex_c\": 25.3,\n                        \"heatindex_f\": 77.5,\n                        \"dewpoint_c\": 11,\n                        \"dewpoint_f\": 51.8,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 3.1,\n                        \"gust_kph\": 5,\n                        \"uv\": 6\n                    },\n                    {\n                        \"time_epoch\": 1679203800,\n                        \"time\": \"2023-03-19 11:00\",\n                        \"temp_c\": 29.2,\n                        \"temp_f\": 84.6,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 4,\n                        \"wind_kph\": 6.5,\n                        \"wind_degree\": 308,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1010,\n                        \"pressure_in\": 29.83,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 35,\n                        \"cloud\": 9,\n                        \"feelslike_c\": 28.6,\n                        \"feelslike_f\": 83.5,\n                        \"windchill_c\": 29.2,\n                        \"windchill_f\": 84.6,\n                        \"heatindex_c\": 28.6,\n                        \"heatindex_f\": 83.5,\n                        \"dewpoint_c\": 11.9,\n                        \"dewpoint_f\": 53.4,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 4.7,\n                        \"gust_kph\": 7.6,\n                        \"uv\": 7\n                    },\n                    {\n                        \"time_epoch\": 1679207400,\n                        \"time\": \"2023-03-19 12:00\",\n                        \"temp_c\": 30.4,\n                        \"temp_f\": 86.7,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 6,\n                        \"wind_kph\": 9.7,\n                        \"wind_degree\": 307,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1009,\n                        \"pressure_in\": 29.79,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 29,\n                        \"cloud\": 6,\n                        \"feelslike_c\": 29.2,\n                        \"feelslike_f\": 84.6,\n                        \"windchill_c\": 30.4,\n                        \"windchill_f\": 86.7,\n                        \"heatindex_c\": 29.2,\n                        \"heatindex_f\": 84.6,\n                        \"dewpoint_c\": 10.5,\n                        \"dewpoint_f\": 50.9,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 6.9,\n                        \"gust_kph\": 11.2,\n                        \"uv\": 8\n                    },\n                    {\n                        \"time_epoch\": 1679211000,\n                        \"time\": \"2023-03-19 13:00\",\n                        \"temp_c\": 31.4,\n                        \"temp_f\": 88.5,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 8.1,\n                        \"wind_kph\": 13,\n                        \"wind_degree\": 310,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1008,\n                        \"pressure_in\": 29.75,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 26,\n                        \"cloud\": 5,\n                        \"feelslike_c\": 29.9,\n                        \"feelslike_f\": 85.8,\n                        \"windchill_c\": 31.4,\n                        \"windchill_f\": 88.5,\n                        \"heatindex_c\": 29.9,\n                        \"heatindex_f\": 85.8,\n                        \"dewpoint_c\": 9.6,\n                        \"dewpoint_f\": 49.3,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 9.2,\n                        \"gust_kph\": 14.8,\n                        \"uv\": 8\n                    },\n                    {\n                        \"time_epoch\": 1679214600,\n                        \"time\": \"2023-03-19 14:00\",\n                        \"temp_c\": 29.5,\n                        \"temp_f\": 85.1,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 8.9,\n                        \"wind_kph\": 14.4,\n                        \"wind_degree\": 309,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1007,\n                        \"pressure_in\": 29.72,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 24,\n                        \"cloud\": 15,\n                        \"feelslike_c\": 27.8,\n                        \"feelslike_f\": 82,\n                        \"windchill_c\": 29.5,\n                        \"windchill_f\": 85.1,\n                        \"heatindex_c\": 27.8,\n                        \"heatindex_f\": 82,\n                        \"dewpoint_c\": 7,\n                        \"dewpoint_f\": 44.6,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 10.3,\n                        \"gust_kph\": 16.6,\n                        \"uv\": 7\n                    },\n                    {\n                        \"time_epoch\": 1679218200,\n                        \"time\": \"2023-03-19 15:00\",\n                        \"temp_c\": 29,\n                        \"temp_f\": 84.2,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Partly cloudy\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/116.png\",\n                            \"code\": 1003\n                        },\n                        \"wind_mph\": 10.1,\n                        \"wind_kph\": 16.2,\n                        \"wind_degree\": 309,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1006,\n                        \"pressure_in\": 29.7,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 24,\n                        \"cloud\": 28,\n                        \"feelslike_c\": 27.2,\n                        \"feelslike_f\": 81,\n                        \"windchill_c\": 29,\n                        \"windchill_f\": 84.2,\n                        \"heatindex_c\": 27.2,\n                        \"heatindex_f\": 81,\n                        \"dewpoint_c\": 6.2,\n                        \"dewpoint_f\": 43.2,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 11.6,\n                        \"gust_kph\": 18.7,\n                        \"uv\": 7\n                    },\n                    {\n                        \"time_epoch\": 1679221800,\n                        \"time\": \"2023-03-19 16:00\",\n                        \"temp_c\": 28.7,\n                        \"temp_f\": 83.7,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Partly cloudy\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/116.png\",\n                            \"code\": 1003\n                        },\n                        \"wind_mph\": 10.1,\n                        \"wind_kph\": 16.2,\n                        \"wind_degree\": 312,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1006,\n                        \"pressure_in\": 29.69,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 24,\n                        \"cloud\": 30,\n                        \"feelslike_c\": 27,\n                        \"feelslike_f\": 80.6,\n                        \"windchill_c\": 28.7,\n                        \"windchill_f\": 83.7,\n                        \"heatindex_c\": 27,\n                        \"heatindex_f\": 80.6,\n                        \"dewpoint_c\": 6.2,\n                        \"dewpoint_f\": 43.2,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 11.6,\n                        \"gust_kph\": 18.7,\n                        \"uv\": 7\n                    },\n                    {\n                        \"time_epoch\": 1679225400,\n                        \"time\": \"2023-03-19 17:00\",\n                        \"temp_c\": 28.4,\n                        \"temp_f\": 83.1,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Partly cloudy\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/116.png\",\n                            \"code\": 1003\n                        },\n                        \"wind_mph\": 11.4,\n                        \"wind_kph\": 18.4,\n                        \"wind_degree\": 315,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1006,\n                        \"pressure_in\": 29.69,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 25,\n                        \"cloud\": 31,\n                        \"feelslike_c\": 26.9,\n                        \"feelslike_f\": 80.4,\n                        \"windchill_c\": 28.4,\n                        \"windchill_f\": 83.1,\n                        \"heatindex_c\": 26.9,\n                        \"heatindex_f\": 80.4,\n                        \"dewpoint_c\": 6.7,\n                        \"dewpoint_f\": 44.1,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 13.2,\n                        \"gust_kph\": 21.2,\n                        \"uv\": 7\n                    },\n                    {\n                        \"time_epoch\": 1679229000,\n                        \"time\": \"2023-03-19 18:00\",\n                        \"temp_c\": 27.6,\n                        \"temp_f\": 81.7,\n                        \"is_day\": 1,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 10.7,\n                        \"wind_kph\": 17.3,\n                        \"wind_degree\": 324,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1006,\n                        \"pressure_in\": 29.7,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 29,\n                        \"cloud\": 7,\n                        \"feelslike_c\": 26.5,\n                        \"feelslike_f\": 79.7,\n                        \"windchill_c\": 27.6,\n                        \"windchill_f\": 81.7,\n                        \"heatindex_c\": 26.5,\n                        \"heatindex_f\": 79.7,\n                        \"dewpoint_c\": 8.1,\n                        \"dewpoint_f\": 46.6,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 12.3,\n                        \"gust_kph\": 19.8,\n                        \"uv\": 7\n                    },\n                    {\n                        \"time_epoch\": 1679232600,\n                        \"time\": \"2023-03-19 19:00\",\n                        \"temp_c\": 24.8,\n                        \"temp_f\": 76.6,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 8.7,\n                        \"wind_kph\": 14,\n                        \"wind_degree\": 339,\n                        \"wind_dir\": \"NNW\",\n                        \"pressure_mb\": 1006,\n                        \"pressure_in\": 29.71,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 32,\n                        \"cloud\": 4,\n                        \"feelslike_c\": 24.8,\n                        \"feelslike_f\": 76.6,\n                        \"windchill_c\": 24.8,\n                        \"windchill_f\": 76.6,\n                        \"heatindex_c\": 24.8,\n                        \"heatindex_f\": 76.6,\n                        \"dewpoint_c\": 7.2,\n                        \"dewpoint_f\": 45,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 14.5,\n                        \"gust_kph\": 23.4,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679236200,\n                        \"time\": \"2023-03-19 20:00\",\n                        \"temp_c\": 23.5,\n                        \"temp_f\": 74.3,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 8.1,\n                        \"wind_kph\": 13,\n                        \"wind_degree\": 338,\n                        \"wind_dir\": \"NNW\",\n                        \"pressure_mb\": 1007,\n                        \"pressure_in\": 29.74,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 35,\n                        \"cloud\": 5,\n                        \"feelslike_c\": 24.2,\n                        \"feelslike_f\": 75.6,\n                        \"windchill_c\": 23.5,\n                        \"windchill_f\": 74.3,\n                        \"heatindex_c\": 24.2,\n                        \"heatindex_f\": 75.6,\n                        \"dewpoint_c\": 7,\n                        \"dewpoint_f\": 44.6,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 15,\n                        \"gust_kph\": 24.1,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679239800,\n                        \"time\": \"2023-03-19 21:00\",\n                        \"temp_c\": 22.9,\n                        \"temp_f\": 73.2,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 6.9,\n                        \"wind_kph\": 11.2,\n                        \"wind_degree\": 350,\n                        \"wind_dir\": \"N\",\n                        \"pressure_mb\": 1008,\n                        \"pressure_in\": 29.76,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 37,\n                        \"cloud\": 5,\n                        \"feelslike_c\": 24.1,\n                        \"feelslike_f\": 75.4,\n                        \"windchill_c\": 22.9,\n                        \"windchill_f\": 73.2,\n                        \"heatindex_c\": 24.1,\n                        \"heatindex_f\": 75.4,\n                        \"dewpoint_c\": 7.3,\n                        \"dewpoint_f\": 45.1,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 13.2,\n                        \"gust_kph\": 21.2,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679243400,\n                        \"time\": \"2023-03-19 22:00\",\n                        \"temp_c\": 22.2,\n                        \"temp_f\": 72,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 8.7,\n                        \"wind_kph\": 14,\n                        \"wind_degree\": 325,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1008,\n                        \"pressure_in\": 29.77,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 40,\n                        \"cloud\": 6,\n                        \"feelslike_c\": 24.1,\n                        \"feelslike_f\": 75.4,\n                        \"windchill_c\": 22.2,\n                        \"windchill_f\": 72,\n                        \"heatindex_c\": 24.1,\n                        \"heatindex_f\": 75.4,\n                        \"dewpoint_c\": 8.1,\n                        \"dewpoint_f\": 46.6,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 15.2,\n                        \"gust_kph\": 24.5,\n                        \"uv\": 1\n                    },\n                    {\n                        \"time_epoch\": 1679247000,\n                        \"time\": \"2023-03-19 23:00\",\n                        \"temp_c\": 20.8,\n                        \"temp_f\": 69.4,\n                        \"is_day\": 0,\n                        \"condition\": {\n                            \"text\": \"Clear\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                            \"code\": 1000\n                        },\n                        \"wind_mph\": 8.3,\n                        \"wind_kph\": 13.3,\n                        \"wind_degree\": 314,\n                        \"wind_dir\": \"NW\",\n                        \"pressure_mb\": 1008,\n                        \"pressure_in\": 29.76,\n                        \"precip_mm\": 0,\n                        \"precip_in\": 0,\n                        \"humidity\": 49,\n                        \"cloud\": 8,\n                        \"feelslike_c\": 20.8,\n                        \"feelslike_f\": 69.4,\n                        \"windchill_c\": 20.8,\n                        \"windchill_f\": 69.4,\n                        \"heatindex_c\": 20.8,\n                        \"heatindex_f\": 69.4,\n                        \"dewpoint_c\": 9.7,\n                        \"dewpoint_f\": 49.5,\n                        \"will_it_rain\": 0,\n                        \"chance_of_rain\": 0,\n                        \"will_it_snow\": 0,\n                        \"chance_of_snow\": 0,\n                        \"vis_km\": 10,\n                        \"vis_miles\": 6,\n                        \"gust_mph\": 14.1,\n                        \"gust_kph\": 22.7,\n                        \"uv\": 1\n                    }\n                ]\n            }\n        ]\n    },\n    \"alerts\": {\n        \"alert\": []\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "pincode-to-coords",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-RapidAPI-Key",
+						"value": "31dd764f7cmsh36b0e2c416365e1p1a5995jsn5e6263c75b55",
+						"type": "text"
+					},
+					{
+						"key": "X-RapidAPI-Host",
+						"value": "india-pincode-with-latitude-and-longitude.p.rapidapi.com",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/342006",
+					"protocol": "https",
+					"host": [
+						"india-pincode-with-latitude-and-longitude",
+						"p",
+						"rapidapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pincode",
+						"342006"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "pincode-to-coords",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "827c63cccbmsh5616f146776a46dp11e267jsnfca265f16ebd",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "india-pincode-with-latitude-and-longitude.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/pincode/342006",
+							"protocol": "https",
+							"host": [
+								"india-pincode-with-latitude-and-longitude",
+								"p",
+								"rapidapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pincode",
+								"342006"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 18 Mar 2023 15:19:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "176"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "x-turbo-charged-by",
+							"value": "LiteSpeed"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-RateLimit-Requests-Limit",
+							"value": "1000"
+						},
+						{
+							"key": "X-RateLimit-Requests-Remaining",
+							"value": "972"
+						},
+						{
+							"key": "X-RateLimit-Requests-Reset",
+							"value": "2663973"
+						},
+						{
+							"key": "Server",
+							"value": "RapidAPI-1.2.8"
+						},
+						{
+							"key": "X-RapidAPI-Version",
+							"value": "1.2.8"
+						},
+						{
+							"key": "X-RapidAPI-Region",
+							"value": "AWS - ap-southeast-1"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"pincode\": 342006,\n        \"area\": \"Jodhpur Kachery\",\n        \"lat\": 26.305187,\n        \"lng\": 73.075945,\n        \"district\": \"Jodhpur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 342006,\n        \"area\": \"Jodhpur Laxmi Nagar\",\n        \"lat\": 26.305187,\n        \"lng\": 73.075945,\n        \"district\": \"Jodhpur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 342006,\n        \"area\": \"Jodhpur Mahamandir\",\n        \"lat\": 26.305187,\n        \"lng\": 73.075945,\n        \"district\": \"Jodhpur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 342006,\n        \"area\": \"Jodhpur Rasala Road\",\n        \"lat\": 26.29499,\n        \"lng\": 73.04014,\n        \"district\": \"Jodhpur\",\n        \"state\": \"Rajasthan\"\n    },\n    {\n        \"pincode\": 342006,\n        \"area\": \"Jodhpur Umaid Bhawan\",\n        \"lat\": 26.28629,\n        \"lng\": 73.01073,\n        \"district\": \"Jodhpur\",\n        \"state\": \"Rajasthan\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "pincode-to-coords local",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pincode\" : \"313002\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "pincode-to-coords local",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-RapidAPI-Key",
+								"value": "827c63cccbmsh5616f146776a46dp11e267jsnfca265f16ebd",
+								"type": "text"
+							},
+							{
+								"key": "X-RapidAPI-Host",
+								"value": "india-pincode-with-latitude-and-longitude.p.rapidapi.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pincode\" : 342006\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-iA3h+NFHlmA3U7CEkh56jSiYsaY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Mar 2023 15:27:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"received data\",\n    \"data\": {\n        \"lat\": 26.305187,\n        \"lng\": 73.075945\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "coords-to-weather-data",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{weatherapi-key}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherapi.com/v1/forecast.json?q=paris&alerts=yes",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherapi",
+						"com"
+					],
+					"path": [
+						"v1",
+						"forecast.json"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "paris"
+						},
+						{
+							"key": "alerts",
+							"value": "yes"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coords-to-weather-data local",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"q\" : \"26.3065,73.0423\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/weatherdata/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weatherdata",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "coords-to-weather-data local",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"q\" : \"26.302209,72.863364\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/weatherdata/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"weatherdata",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16563"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"40b3-Tqe6Rd3MJXtKnB5VCuBqZvo5OMc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Mar 2023 15:17:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Fetched Data\",\n    \"error\": false,\n    \"data\": {\n        \"location\": {\n            \"name\": \"Jodhpur\",\n            \"region\": \"Rajasthan\",\n            \"country\": \"India\",\n            \"lat\": 26.3,\n            \"lon\": 72.86,\n            \"tz_id\": \"Asia/Kolkata\",\n            \"localtime_epoch\": 1679152662,\n            \"localtime\": \"2023-03-18 20:47\"\n        },\n        \"current\": {\n            \"last_updated_epoch\": 1679152500,\n            \"last_updated\": \"2023-03-18 20:45\",\n            \"temp_c\": 26.8,\n            \"temp_f\": 80.2,\n            \"is_day\": 0,\n            \"condition\": {\n                \"text\": \"Clear\",\n                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                \"code\": 1000\n            },\n            \"wind_mph\": 7.4,\n            \"wind_kph\": 11.9,\n            \"wind_degree\": 316,\n            \"wind_dir\": \"NW\",\n            \"pressure_mb\": 1009,\n            \"pressure_in\": 29.79,\n            \"precip_mm\": 0,\n            \"precip_in\": 0,\n            \"humidity\": 30,\n            \"cloud\": 13,\n            \"feelslike_c\": 26,\n            \"feelslike_f\": 78.8,\n            \"vis_km\": 10,\n            \"vis_miles\": 6,\n            \"uv\": 1,\n            \"gust_mph\": 11.9,\n            \"gust_kph\": 19.1\n        },\n        \"forecast\": {\n            \"forecastday\": [\n                {\n                    \"date\": \"2023-03-18\",\n                    \"date_epoch\": 1679097600,\n                    \"day\": {\n                        \"maxtemp_c\": 32.9,\n                        \"maxtemp_f\": 91.2,\n                        \"mintemp_c\": 20.6,\n                        \"mintemp_f\": 69.1,\n                        \"avgtemp_c\": 26.5,\n                        \"avgtemp_f\": 79.7,\n                        \"maxwind_mph\": 15.9,\n                        \"maxwind_kph\": 25.6,\n                        \"totalprecip_mm\": 0.1,\n                        \"totalprecip_in\": 0,\n                        \"totalsnow_cm\": 0,\n                        \"avgvis_km\": 10,\n                        \"avgvis_miles\": 6,\n                        \"avghumidity\": 35,\n                        \"daily_will_it_rain\": 0,\n                        \"daily_chance_of_rain\": 0,\n                        \"daily_will_it_snow\": 0,\n                        \"daily_chance_of_snow\": 0,\n                        \"condition\": {\n                            \"text\": \"Sunny\",\n                            \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                            \"code\": 1000\n                        },\n                        \"uv\": 7\n                    },\n                    \"astro\": {\n                        \"sunrise\": \"06:44 AM\",\n                        \"sunset\": \"06:48 PM\",\n                        \"moonrise\": \"04:24 AM\",\n                        \"moonset\": \"03:11 PM\",\n                        \"moon_phase\": \"Waning Crescent\",\n                        \"moon_illumination\": \"19\",\n                        \"is_moon_up\": 1,\n                        \"is_sun_up\": 0\n                    },\n                    \"hour\": [\n                        {\n                            \"time_epoch\": 1679077800,\n                            \"time\": \"2023-03-18 00:00\",\n                            \"temp_c\": 24.4,\n                            \"temp_f\": 75.9,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Patchy rain possible\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/176.png\",\n                                \"code\": 1063\n                            },\n                            \"wind_mph\": 10.3,\n                            \"wind_kph\": 16.6,\n                            \"wind_degree\": 73,\n                            \"wind_dir\": \"ENE\",\n                            \"pressure_mb\": 1010,\n                            \"pressure_in\": 29.81,\n                            \"precip_mm\": 0.1,\n                            \"precip_in\": 0,\n                            \"humidity\": 37,\n                            \"cloud\": 79,\n                            \"feelslike_c\": 24.9,\n                            \"feelslike_f\": 76.8,\n                            \"windchill_c\": 24.4,\n                            \"windchill_f\": 75.9,\n                            \"heatindex_c\": 24.9,\n                            \"heatindex_f\": 76.8,\n                            \"dewpoint_c\": 8.9,\n                            \"dewpoint_f\": 48,\n                            \"will_it_rain\": 1,\n                            \"chance_of_rain\": 87,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 17.9,\n                            \"gust_kph\": 28.8,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679081400,\n                            \"time\": \"2023-03-18 01:00\",\n                            \"temp_c\": 23.7,\n                            \"temp_f\": 74.7,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 11.6,\n                            \"wind_kph\": 18.7,\n                            \"wind_degree\": 61,\n                            \"wind_dir\": \"ENE\",\n                            \"pressure_mb\": 1010,\n                            \"pressure_in\": 29.81,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 39,\n                            \"cloud\": 13,\n                            \"feelslike_c\": 24.6,\n                            \"feelslike_f\": 76.3,\n                            \"windchill_c\": 23.7,\n                            \"windchill_f\": 74.7,\n                            \"heatindex_c\": 24.6,\n                            \"heatindex_f\": 76.3,\n                            \"dewpoint_c\": 9,\n                            \"dewpoint_f\": 48.2,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 20.1,\n                            \"gust_kph\": 32.4,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679085000,\n                            \"time\": \"2023-03-18 02:00\",\n                            \"temp_c\": 22.4,\n                            \"temp_f\": 72.3,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 12.1,\n                            \"wind_kph\": 19.4,\n                            \"wind_degree\": 55,\n                            \"wind_dir\": \"NE\",\n                            \"pressure_mb\": 1010,\n                            \"pressure_in\": 29.82,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 45,\n                            \"cloud\": 8,\n                            \"feelslike_c\": 24.4,\n                            \"feelslike_f\": 75.9,\n                            \"windchill_c\": 22.4,\n                            \"windchill_f\": 72.3,\n                            \"heatindex_c\": 24.4,\n                            \"heatindex_f\": 75.9,\n                            \"dewpoint_c\": 10,\n                            \"dewpoint_f\": 50,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 19.2,\n                            \"gust_kph\": 31,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679088600,\n                            \"time\": \"2023-03-18 03:00\",\n                            \"temp_c\": 21.7,\n                            \"temp_f\": 71.1,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 10.1,\n                            \"wind_kph\": 16.2,\n                            \"wind_degree\": 50,\n                            \"wind_dir\": \"NE\",\n                            \"pressure_mb\": 1009,\n                            \"pressure_in\": 29.81,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 48,\n                            \"cloud\": 10,\n                            \"feelslike_c\": 21.7,\n                            \"feelslike_f\": 71.1,\n                            \"windchill_c\": 21.7,\n                            \"windchill_f\": 71.1,\n                            \"heatindex_c\": 24.3,\n                            \"heatindex_f\": 75.7,\n                            \"dewpoint_c\": 10.2,\n                            \"dewpoint_f\": 50.4,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 17.2,\n                            \"gust_kph\": 27.7,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679092200,\n                            \"time\": \"2023-03-18 04:00\",\n                            \"temp_c\": 21.2,\n                            \"temp_f\": 70.2,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 10.1,\n                            \"wind_kph\": 16.2,\n                            \"wind_degree\": 54,\n                            \"wind_dir\": \"NE\",\n                            \"pressure_mb\": 1009,\n                            \"pressure_in\": 29.8,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 50,\n                            \"cloud\": 12,\n                            \"feelslike_c\": 21.2,\n                            \"feelslike_f\": 70.2,\n                            \"windchill_c\": 21.2,\n                            \"windchill_f\": 70.2,\n                            \"heatindex_c\": 24.3,\n                            \"heatindex_f\": 75.7,\n                            \"dewpoint_c\": 10.4,\n                            \"dewpoint_f\": 50.7,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 17.9,\n                            \"gust_kph\": 28.8,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679095800,\n                            \"time\": \"2023-03-18 05:00\",\n                            \"temp_c\": 20.8,\n                            \"temp_f\": 69.4,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 8.9,\n                            \"wind_kph\": 14.4,\n                            \"wind_degree\": 54,\n                            \"wind_dir\": \"NE\",\n                            \"pressure_mb\": 1009,\n                            \"pressure_in\": 29.8,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 52,\n                            \"cloud\": 13,\n                            \"feelslike_c\": 20.8,\n                            \"feelslike_f\": 69.4,\n                            \"windchill_c\": 20.8,\n                            \"windchill_f\": 69.4,\n                            \"heatindex_c\": 20.8,\n                            \"heatindex_f\": 69.4,\n                            \"dewpoint_c\": 10.7,\n                            \"dewpoint_f\": 51.3,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 16.3,\n                            \"gust_kph\": 26.3,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679099400,\n                            \"time\": \"2023-03-18 06:00\",\n                            \"temp_c\": 20.6,\n                            \"temp_f\": 69.1,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.6,\n                            \"wind_kph\": 12.2,\n                            \"wind_degree\": 48,\n                            \"wind_dir\": \"NE\",\n                            \"pressure_mb\": 1010,\n                            \"pressure_in\": 29.83,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 53,\n                            \"cloud\": 13,\n                            \"feelslike_c\": 20.6,\n                            \"feelslike_f\": 69.1,\n                            \"windchill_c\": 20.6,\n                            \"windchill_f\": 69.1,\n                            \"heatindex_c\": 20.6,\n                            \"heatindex_f\": 69.1,\n                            \"dewpoint_c\": 10.6,\n                            \"dewpoint_f\": 51.1,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 13.9,\n                            \"gust_kph\": 22.3,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679103000,\n                            \"time\": \"2023-03-18 07:00\",\n                            \"temp_c\": 21.1,\n                            \"temp_f\": 70,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.8,\n                            \"wind_kph\": 12.6,\n                            \"wind_degree\": 54,\n                            \"wind_dir\": \"NE\",\n                            \"pressure_mb\": 1011,\n                            \"pressure_in\": 29.85,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 51,\n                            \"cloud\": 10,\n                            \"feelslike_c\": 21.1,\n                            \"feelslike_f\": 70,\n                            \"windchill_c\": 21.1,\n                            \"windchill_f\": 70,\n                            \"heatindex_c\": 24.3,\n                            \"heatindex_f\": 75.7,\n                            \"dewpoint_c\": 10.6,\n                            \"dewpoint_f\": 51.1,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 13.2,\n                            \"gust_kph\": 21.2,\n                            \"uv\": 6\n                        },\n                        {\n                            \"time_epoch\": 1679106600,\n                            \"time\": \"2023-03-18 08:00\",\n                            \"temp_c\": 23.2,\n                            \"temp_f\": 73.8,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.8,\n                            \"wind_kph\": 12.6,\n                            \"wind_degree\": 35,\n                            \"wind_dir\": \"NE\",\n                            \"pressure_mb\": 1012,\n                            \"pressure_in\": 29.88,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 45,\n                            \"cloud\": 4,\n                            \"feelslike_c\": 24.6,\n                            \"feelslike_f\": 76.3,\n                            \"windchill_c\": 23.2,\n                            \"windchill_f\": 73.8,\n                            \"heatindex_c\": 24.6,\n                            \"heatindex_f\": 76.3,\n                            \"dewpoint_c\": 10.5,\n                            \"dewpoint_f\": 50.9,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 9.6,\n                            \"gust_kph\": 15.5,\n                            \"uv\": 6\n                        },\n                        {\n                            \"time_epoch\": 1679110200,\n                            \"time\": \"2023-03-18 09:00\",\n                            \"temp_c\": 25.2,\n                            \"temp_f\": 77.4,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.4,\n                            \"wind_kph\": 11.9,\n                            \"wind_degree\": 34,\n                            \"wind_dir\": \"NE\",\n                            \"pressure_mb\": 1012,\n                            \"pressure_in\": 29.89,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 39,\n                            \"cloud\": 4,\n                            \"feelslike_c\": 25.4,\n                            \"feelslike_f\": 77.7,\n                            \"windchill_c\": 25.2,\n                            \"windchill_f\": 77.4,\n                            \"heatindex_c\": 25.4,\n                            \"heatindex_f\": 77.7,\n                            \"dewpoint_c\": 10.2,\n                            \"dewpoint_f\": 50.4,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 8.5,\n                            \"gust_kph\": 13.7,\n                            \"uv\": 7\n                        },\n                        {\n                            \"time_epoch\": 1679113800,\n                            \"time\": \"2023-03-18 10:00\",\n                            \"temp_c\": 26.8,\n                            \"temp_f\": 80.2,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 5.6,\n                            \"wind_kph\": 9,\n                            \"wind_degree\": 24,\n                            \"wind_dir\": \"NNE\",\n                            \"pressure_mb\": 1012,\n                            \"pressure_in\": 29.89,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 34,\n                            \"cloud\": 6,\n                            \"feelslike_c\": 26.3,\n                            \"feelslike_f\": 79.3,\n                            \"windchill_c\": 26.8,\n                            \"windchill_f\": 80.2,\n                            \"heatindex_c\": 26.3,\n                            \"heatindex_f\": 79.3,\n                            \"dewpoint_c\": 9.7,\n                            \"dewpoint_f\": 49.5,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 6.5,\n                            \"gust_kph\": 10.4,\n                            \"uv\": 7\n                        },\n                        {\n                            \"time_epoch\": 1679117400,\n                            \"time\": \"2023-03-18 11:00\",\n                            \"temp_c\": 31.2,\n                            \"temp_f\": 88.2,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 5.6,\n                            \"wind_kph\": 9,\n                            \"wind_degree\": 351,\n                            \"wind_dir\": \"N\",\n                            \"pressure_mb\": 1012,\n                            \"pressure_in\": 29.88,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 30,\n                            \"cloud\": 10,\n                            \"feelslike_c\": 30.3,\n                            \"feelslike_f\": 86.5,\n                            \"windchill_c\": 31.2,\n                            \"windchill_f\": 88.2,\n                            \"heatindex_c\": 30.3,\n                            \"heatindex_f\": 86.5,\n                            \"dewpoint_c\": 11.7,\n                            \"dewpoint_f\": 53.1,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 6.5,\n                            \"gust_kph\": 10.4,\n                            \"uv\": 8\n                        },\n                        {\n                            \"time_epoch\": 1679121000,\n                            \"time\": \"2023-03-18 12:00\",\n                            \"temp_c\": 32.5,\n                            \"temp_f\": 90.5,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.6,\n                            \"wind_kph\": 12.2,\n                            \"wind_degree\": 332,\n                            \"wind_dir\": \"NNW\",\n                            \"pressure_mb\": 1011,\n                            \"pressure_in\": 29.85,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 27,\n                            \"cloud\": 12,\n                            \"feelslike_c\": 31.3,\n                            \"feelslike_f\": 88.3,\n                            \"windchill_c\": 32.5,\n                            \"windchill_f\": 90.5,\n                            \"heatindex_c\": 31.3,\n                            \"heatindex_f\": 88.3,\n                            \"dewpoint_c\": 10.9,\n                            \"dewpoint_f\": 51.6,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 8.7,\n                            \"gust_kph\": 14,\n                            \"uv\": 8\n                        },\n                        {\n                            \"time_epoch\": 1679124600,\n                            \"time\": \"2023-03-18 13:00\",\n                            \"temp_c\": 32.3,\n                            \"temp_f\": 90.1,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 9.6,\n                            \"wind_kph\": 15.5,\n                            \"wind_degree\": 323,\n                            \"wind_dir\": \"NW\",\n                            \"pressure_mb\": 1010,\n                            \"pressure_in\": 29.81,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 25,\n                            \"cloud\": 12,\n                            \"feelslike_c\": 30.7,\n                            \"feelslike_f\": 87.3,\n                            \"windchill_c\": 32.3,\n                            \"windchill_f\": 90.1,\n                            \"heatindex_c\": 30.7,\n                            \"heatindex_f\": 87.3,\n                            \"dewpoint_c\": 9.5,\n                            \"dewpoint_f\": 49.1,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 11.2,\n                            \"gust_kph\": 18,\n                            \"uv\": 8\n                        },\n                        {\n                            \"time_epoch\": 1679128200,\n                            \"time\": \"2023-03-18 14:00\",\n                            \"temp_c\": 32,\n                            \"temp_f\": 89.6,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 11,\n                            \"wind_kph\": 17.6,\n                            \"wind_degree\": 318,\n                            \"wind_dir\": \"NW\",\n                            \"pressure_mb\": 1009,\n                            \"pressure_in\": 29.78,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 24,\n                            \"cloud\": 13,\n                            \"feelslike_c\": 30.3,\n                            \"feelslike_f\": 86.5,\n                            \"windchill_c\": 32,\n                            \"windchill_f\": 89.6,\n                            \"heatindex_c\": 30.3,\n                            \"heatindex_f\": 86.5,\n                            \"dewpoint_c\": 8.8,\n                            \"dewpoint_f\": 47.8,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 12.5,\n                            \"gust_kph\": 20.2,\n                            \"uv\": 8\n                        },\n                        {\n                            \"time_epoch\": 1679131800,\n                            \"time\": \"2023-03-18 15:00\",\n                            \"temp_c\": 31.1,\n                            \"temp_f\": 88,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 11.9,\n                            \"wind_kph\": 19.1,\n                            \"wind_degree\": 312,\n                            \"wind_dir\": \"NW\",\n                            \"pressure_mb\": 1008,\n                            \"pressure_in\": 29.76,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 24,\n                            \"cloud\": 19,\n                            \"feelslike_c\": 29.3,\n                            \"feelslike_f\": 84.7,\n                            \"windchill_c\": 31.1,\n                            \"windchill_f\": 88,\n                            \"heatindex_c\": 29.3,\n                            \"heatindex_f\": 84.7,\n                            \"dewpoint_c\": 8,\n                            \"dewpoint_f\": 46.4,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 13.6,\n                            \"gust_kph\": 22,\n                            \"uv\": 8\n                        },\n                        {\n                            \"time_epoch\": 1679135400,\n                            \"time\": \"2023-03-18 16:00\",\n                            \"temp_c\": 30.7,\n                            \"temp_f\": 87.3,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Partly cloudy\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/116.png\",\n                                \"code\": 1003\n                            },\n                            \"wind_mph\": 13,\n                            \"wind_kph\": 20.9,\n                            \"wind_degree\": 313,\n                            \"wind_dir\": \"NW\",\n                            \"pressure_mb\": 1007,\n                            \"pressure_in\": 29.74,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 24,\n                            \"cloud\": 46,\n                            \"feelslike_c\": 28.9,\n                            \"feelslike_f\": 84,\n                            \"windchill_c\": 30.7,\n                            \"windchill_f\": 87.3,\n                            \"heatindex_c\": 28.9,\n                            \"heatindex_f\": 84,\n                            \"dewpoint_c\": 7.8,\n                            \"dewpoint_f\": 46,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 15,\n                            \"gust_kph\": 24.1,\n                            \"uv\": 8\n                        },\n                        {\n                            \"time_epoch\": 1679139000,\n                            \"time\": \"2023-03-18 17:00\",\n                            \"temp_c\": 32.9,\n                            \"temp_f\": 91.2,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 15.7,\n                            \"wind_kph\": 25.2,\n                            \"wind_degree\": 321,\n                            \"wind_dir\": \"NW\",\n                            \"pressure_mb\": 1007,\n                            \"pressure_in\": 29.73,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 25,\n                            \"cloud\": 13,\n                            \"feelslike_c\": 31.4,\n                            \"feelslike_f\": 88.5,\n                            \"windchill_c\": 32.9,\n                            \"windchill_f\": 91.2,\n                            \"heatindex_c\": 31.4,\n                            \"heatindex_f\": 88.5,\n                            \"dewpoint_c\": 10,\n                            \"dewpoint_f\": 50,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 18.1,\n                            \"gust_kph\": 29.2,\n                            \"uv\": 8\n                        },\n                        {\n                            \"time_epoch\": 1679142600,\n                            \"time\": \"2023-03-18 18:00\",\n                            \"temp_c\": 30.4,\n                            \"temp_f\": 86.7,\n                            \"is_day\": 1,\n                            \"condition\": {\n                                \"text\": \"Sunny\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/day/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 15.9,\n                            \"wind_kph\": 25.6,\n                            \"wind_degree\": 322,\n                            \"wind_dir\": \"NW\",\n                            \"pressure_mb\": 1007,\n                            \"pressure_in\": 29.75,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 27,\n                            \"cloud\": 10,\n                            \"feelslike_c\": 29,\n                            \"feelslike_f\": 84.2,\n                            \"windchill_c\": 30.4,\n                            \"windchill_f\": 86.7,\n                            \"heatindex_c\": 29,\n                            \"heatindex_f\": 84.2,\n                            \"dewpoint_c\": 9.4,\n                            \"dewpoint_f\": 48.9,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 18.3,\n                            \"gust_kph\": 29.5,\n                            \"uv\": 8\n                        },\n                        {\n                            \"time_epoch\": 1679146200,\n                            \"time\": \"2023-03-18 19:00\",\n                            \"temp_c\": 27.5,\n                            \"temp_f\": 81.5,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 11.9,\n                            \"wind_kph\": 19.1,\n                            \"wind_degree\": 322,\n                            \"wind_dir\": \"NW\",\n                            \"pressure_mb\": 1008,\n                            \"pressure_in\": 29.75,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 29,\n                            \"cloud\": 10,\n                            \"feelslike_c\": 26.4,\n                            \"feelslike_f\": 79.5,\n                            \"windchill_c\": 27.5,\n                            \"windchill_f\": 81.5,\n                            \"heatindex_c\": 26.4,\n                            \"heatindex_f\": 79.5,\n                            \"dewpoint_c\": 7.9,\n                            \"dewpoint_f\": 46.2,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 17,\n                            \"gust_kph\": 27.4,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679149800,\n                            \"time\": \"2023-03-18 20:00\",\n                            \"temp_c\": 26.8,\n                            \"temp_f\": 80.2,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.4,\n                            \"wind_kph\": 11.9,\n                            \"wind_degree\": 316,\n                            \"wind_dir\": \"NW\",\n                            \"pressure_mb\": 1009,\n                            \"pressure_in\": 29.79,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 30,\n                            \"cloud\": 13,\n                            \"feelslike_c\": 26,\n                            \"feelslike_f\": 78.8,\n                            \"windchill_c\": 26.8,\n                            \"windchill_f\": 80.2,\n                            \"heatindex_c\": 26,\n                            \"heatindex_f\": 78.8,\n                            \"dewpoint_c\": 7.9,\n                            \"dewpoint_f\": 46.2,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 11.9,\n                            \"gust_kph\": 19.1,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679153400,\n                            \"time\": \"2023-03-18 21:00\",\n                            \"temp_c\": 26.4,\n                            \"temp_f\": 79.5,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.4,\n                            \"wind_kph\": 11.9,\n                            \"wind_degree\": 347,\n                            \"wind_dir\": \"NNW\",\n                            \"pressure_mb\": 1009,\n                            \"pressure_in\": 29.79,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 30,\n                            \"cloud\": 7,\n                            \"feelslike_c\": 25.7,\n                            \"feelslike_f\": 78.3,\n                            \"windchill_c\": 26.4,\n                            \"windchill_f\": 79.5,\n                            \"heatindex_c\": 25.7,\n                            \"heatindex_f\": 78.3,\n                            \"dewpoint_c\": 7.7,\n                            \"dewpoint_f\": 45.9,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 12.3,\n                            \"gust_kph\": 19.8,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679157000,\n                            \"time\": \"2023-03-18 22:00\",\n                            \"temp_c\": 25.6,\n                            \"temp_f\": 78.1,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.2,\n                            \"wind_kph\": 11.5,\n                            \"wind_degree\": 2,\n                            \"wind_dir\": \"N\",\n                            \"pressure_mb\": 1009,\n                            \"pressure_in\": 29.8,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 31,\n                            \"cloud\": 7,\n                            \"feelslike_c\": 25.2,\n                            \"feelslike_f\": 77.4,\n                            \"windchill_c\": 25.6,\n                            \"windchill_f\": 78.1,\n                            \"heatindex_c\": 25.2,\n                            \"heatindex_f\": 77.4,\n                            \"dewpoint_c\": 7.5,\n                            \"dewpoint_f\": 45.5,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 12.5,\n                            \"gust_kph\": 20.2,\n                            \"uv\": 1\n                        },\n                        {\n                            \"time_epoch\": 1679160600,\n                            \"time\": \"2023-03-18 23:00\",\n                            \"temp_c\": 25.1,\n                            \"temp_f\": 77.2,\n                            \"is_day\": 0,\n                            \"condition\": {\n                                \"text\": \"Clear\",\n                                \"icon\": \"//cdn.weatherapi.com/weather/64x64/night/113.png\",\n                                \"code\": 1000\n                            },\n                            \"wind_mph\": 7.8,\n                            \"wind_kph\": 12.6,\n                            \"wind_degree\": 8,\n                            \"wind_dir\": \"N\",\n                            \"pressure_mb\": 1009,\n                            \"pressure_in\": 29.8,\n                            \"precip_mm\": 0,\n                            \"precip_in\": 0,\n                            \"humidity\": 33,\n                            \"cloud\": 6,\n                            \"feelslike_c\": 25,\n                            \"feelslike_f\": 77,\n                            \"windchill_c\": 25.1,\n                            \"windchill_f\": 77.2,\n                            \"heatindex_c\": 25,\n                            \"heatindex_f\": 77,\n                            \"dewpoint_c\": 7.8,\n                            \"dewpoint_f\": 46,\n                            \"will_it_rain\": 0,\n                            \"chance_of_rain\": 0,\n                            \"will_it_snow\": 0,\n                            \"chance_of_snow\": 0,\n                            \"vis_km\": 10,\n                            \"vis_miles\": 6,\n                            \"gust_mph\": 13.4,\n                            \"gust_kph\": 21.6,\n                            \"uv\": 1\n                        }\n                    ]\n                }\n            ]\n        },\n        \"alerts\": {\n            \"alert\": []\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\" : \"+917976584633\",\r\n    \"fullName\" : \"Priyanshu Arora\",\r\n    \"pincode\" : \"313002\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\" : \"+917976584633\",\r\n    \"name\" : \"Priyanshu Arora\",\r\n    \"pincode\" : \"313002\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "119"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"77-TKUt4lS/XTMXpfWpozynnygRshE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Mar 2023 00:16:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"success\",\n    \"message\": \"Account created OTP sended to mobile number\",\n    \"data\": {\n        \"userId\": \"6416545e6d56ca4935052d75\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "add new pincode",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pincode\" : \"342006\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pin/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pin",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "WeatherAPI-Key2",
+			"value": "52d7b10a86ee4b4cab753745231603"
+		}
+	]
+}
