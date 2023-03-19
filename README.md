@@ -55,7 +55,7 @@
 	
 	
 ### Postman API Collection with Documentation
-Click [here](https://api.postman.com/collections/23425485-1e524f12-4cb7-41fd-b8bf-46cf13a28618?access_key=PMAT-01GVW3R03FMV1SH21ZS5BF7NCK)
+
 
 
 	
