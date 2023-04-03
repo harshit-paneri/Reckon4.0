@@ -66,5 +66,6 @@ ReactJS,
 NodeJS,
 Express,
 MongoDB,
-Figma
+Figma,
+Postman
 
